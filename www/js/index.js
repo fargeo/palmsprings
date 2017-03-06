@@ -1,33 +1,18 @@
 require([
-    '../cordova'
-], function() {    
-    console.log('hello');
-    var app = {
-        // Application Constructor
-        initialize: function() {
-            document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-        },
+    '../cordova',
+    'js/require-config.js'
+], function(cordova) {
+    require([
+        'knockout',
+    ], function(ko) {
+        var vm = {
+            deviceReady: ko.observable(false)
+        };
         
-        // deviceready Event Handler
-        //
-        // Bind any cordova events here. Common events are:
-        // 'pause', 'resume', etc.
-        onDeviceReady: function() {
-            this.receivedEvent('deviceready');
-        },
+        document.addEventListener('deviceready', function () {
+            vm.deviceReady(true);
+        }, false);
         
-        // Update DOM on a Received Event
-        receivedEvent: function(id) {
-            var parentElement = document.getElementById(id);
-            var listeningElement = parentElement.querySelector('.listening');
-            var receivedElement = parentElement.querySelector('.received');
-            
-            listeningElement.setAttribute('style', 'display:none;');
-            receivedElement.setAttribute('style', 'display:block;');
-            
-            console.log('Received Event: ' + id);
-        }
-    };
-    
-    app.initialize();
+        ko.applyBindings(vm);
+    });
 });

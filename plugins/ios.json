@@ -9,6 +9,9 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.arches.palmsprings"
+        },
+        "cordova-plugin-sqlite-2": {
+            "PACKAGE_NAME": "com.arches.palmsprings"
         }
     },
     "dependent_plugins": {}

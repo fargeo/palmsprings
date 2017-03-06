@@ -4,16 +4,40 @@
         "uninstalled": []
     },
     "config_munge": {
-        "files": {}
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"SQLitePlugin\"><param name=\"ios-package\" value=\"SQLitePlugin\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
     },
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.arches.palmsprings"
+        },
+        "cordova-plugin-sqlite-2": {
+            "PACKAGE_NAME": "com.arches.palmsprings"
         }
     },
     "dependent_plugins": {},
-    "modules": [],
+    "modules": [
+        {
+            "id": "cordova-plugin-sqlite-2.sqlitePlugin",
+            "file": "plugins/cordova-plugin-sqlite-2/dist/sqlite-plugin.js",
+            "pluginId": "cordova-plugin-sqlite-2",
+            "clobbers": [
+                "sqlitePlugin"
+            ]
+        }
+    ],
     "plugin_metadata": {
-        "cordova-plugin-whitelist": "1.3.1"
+        "cordova-plugin-whitelist": "1.3.1",
+        "cordova-plugin-sqlite-2": "1.0.4"
     }
 }

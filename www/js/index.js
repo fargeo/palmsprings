@@ -47,23 +47,23 @@ require([
             }
         };
 
-        document.addEventListener('init', function(event) {
-            var page = event.target
-            ko.applyBindings(vm, page);
-        });
-
         vm.selection.subscribe(function(selection) {
             var page;
             if (selection.config && selection.config.resource_models) {
                 page = 'resource-models.html';
             } else if (selection.widgets && selection.widgets.length > 0) {
-                page = 'widgets.html';
+                page = 'card.html';
             } else if (selection.cards) {
                 page = 'cards.html';
             }
             vm.nav.pushPage(page);
         });
 
+        document.addEventListener('init', function(event) {
+            var page = event.target
+            ko.applyBindings(vm, page);
+        });
+        
         document.addEventListener('deviceready', function() {
             db = new PouchDB('palmsprings_development.db', {
                 adapter: 'cordova-sqlite',

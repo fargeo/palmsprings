@@ -11,7 +11,7 @@ bower install
 
 to run:
 ```
-cordova run ios
+cordova run ios --target="iPhone-7, 10.2"
 ```
 
 Let's do this...!

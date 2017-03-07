@@ -44,3 +44,4 @@ jspm_packages
 console.log
 
 www/bower_components
+config.xml

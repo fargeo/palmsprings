@@ -27,15 +27,17 @@
                     </div>
                     <label class="right">
                       <ons-switch></ons-switch>
+                      <ons-button  modifier="quiet" data-bind="click: $parent.startProject">Load</ons-button>
                     </label>
                   </ons-list-item>
                   <!-- /ko -->
-                  
+
                 </ons-list>
+
 
             </ons-page>
         </ons-navigator>
-        
+
         <script src="bower_components/pouchdb/dist/pouchdb.min.js"></script>
         <script src="bower_components/pouchdb-upsert/dist/pouchdb.upsert.min.js"></script>
         <script src="lib/pouchdb.cordova-sqlite.js"></script>

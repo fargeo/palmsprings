@@ -8,7 +8,10 @@ require([
         'onsenui'
     ], function($, ko, onsenui) {
         var vm = {
-            projects: ko.observableArray()
+            projects: ko.observableArray(),
+            startProject: function(){
+                window.location = "form.html";
+            }
         };
 
         document.addEventListener('deviceready', function() {

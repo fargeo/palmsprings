@@ -14,4 +14,10 @@ to run:
 cordova run ios
 ```
 
+If you are having build errors, try to remove and re-add your platform:
+```
+cordova platform rm ios
+cordova platform add ios --save
+```
+
 Let's do this...!

@@ -11,13 +11,13 @@
         <title>Palm Springs</title>
     </head>
     <body>
-        <ons-navigator animation="slide" id="my-navigator">
+        <ons-navigator animation="slide" id="app-nav">
             <ons-page>
                 <ons-list>
                   <ons-list-header>My Projects</ons-list-header>
                   
                   <!-- ko foreach: projects -->
-                  <ons-list-item modifier="chevron">
+                  <ons-list-item modifier="chevron" data-bind="click: $parent.selection">
                     <div class="left">
                       <ons-icon icon="md-face" class="list__item__icon"></ons-icon>
                     </div>
@@ -29,10 +29,71 @@
                   <!-- /ko -->
 
                 </ons-list>
-
-
             </ons-page>
         </ons-navigator>
+        
+        <ons-template id="resource-models.html">
+          <ons-page>
+              <ons-list>
+                <ons-list-header>Resource Models</ons-list-header>
+                <!-- ko if: selection().config && selection().config.resource_models -->
+                    <!-- ko foreach: selection().config.resource_models -->
+                    <ons-list-item modifier="chevron" data-bind="click: $parent.selection">
+                      <div class="left">
+                        <ons-icon icon="md-face" class="list__item__icon"></ons-icon>
+                      </div>
+                      <div class="center">
+                        <span class="list__item__title" data-bind="text: name"></span>
+                        <span class="list__item__subtitle">Subtitle</span>
+                      </div>
+                    </ons-list-item>
+                    <!-- /ko -->
+                <!-- /ko -->
+              </ons-list>
+          </ons-page>
+        </ons-template>
+        
+        <ons-template id="cards.html">
+          <ons-page>
+              <ons-list>
+                <ons-list-header>Cards</ons-list-header>
+                <!-- ko if: selection().cards -->
+                    <!-- ko foreach: selection().cards -->
+                    <ons-list-item modifier="chevron" data-bind="click: $parent.selection">
+                      <div class="left">
+                        <ons-icon icon="md-face" class="list__item__icon"></ons-icon>
+                      </div>
+                      <div class="center">
+                        <span class="list__item__title" data-bind="text: name"></span>
+                        <span class="list__item__subtitle">Subtitle</span>
+                      </div>
+                    </ons-list-item>
+                    <!-- /ko -->
+                <!-- /ko -->
+              </ons-list>
+          </ons-page>
+        </ons-template>
+        
+        <ons-template id="widgets.html">
+          <ons-page>
+              <ons-list>
+                <ons-list-header>Widgets</ons-list-header>
+                <!-- ko if: selection().widgets -->
+                    <!-- ko foreach: selection().widgets -->
+                    <ons-list-item modifier="chevron">
+                      <div class="left">
+                        <ons-icon icon="md-face" class="list__item__icon"></ons-icon>
+                      </div>
+                      <div class="center">
+                        <span class="list__item__title" data-bind="text: label"></span>
+                        <span class="list__item__subtitle">Subtitle</span>
+                      </div>
+                    </ons-list-item>
+                    <!-- /ko -->
+                <!-- /ko -->
+              </ons-list>
+          </ons-page>
+        </ons-template>
 
         <script src="bower_components/pouchdb/dist/pouchdb.min.js"></script>
         <script src="bower_components/pouchdb-upsert/dist/pouchdb.upsert.min.js"></script>

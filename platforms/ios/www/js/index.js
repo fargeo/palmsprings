@@ -6,13 +6,12 @@ require([
         'knockout',
     ], function(ko) {
         var vm = {
-            deviceReady: ko.observable(false)
+            readyMsg: ko.observable(false)
         };
         
         document.addEventListener('deviceready', function () {
             var db = new PouchDB('palmsprings.db', {adapter: 'cordova-sqlite', iosDatabaseLocation: 'Library'});
             
-            vm.deviceReady(true);
             
             db.put({
                 _id: 'my-test-entity',
@@ -24,7 +23,7 @@ require([
             });
             
             db.allDocs({'include_docs': true}).then(function (docs) {
-                console.log(docs)
+                vm.readyMsg(docs.rows[0].doc.entity.msg);
             }).catch(function (err) {
                 console.log(err);
             });

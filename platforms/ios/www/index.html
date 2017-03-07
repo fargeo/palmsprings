@@ -12,8 +12,7 @@
         <div class="app">
             <h1>Palm Springs</h1>
             <div id="deviceready" class="blink">
-                <p class="event listening" data-bind="visible: !deviceReady()">thinking...</p>
-                <p class="event received" style="display:none;" data-bind="visible: deviceReady()">Let's do this...!</p>
+                <p class="event received" data-bind="text: readyMsg">Let's do this...!</p>
             </div>
         </div>
         <script src="bower_components/pouchdb/dist/pouchdb.min.js"></script>

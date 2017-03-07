@@ -11,8 +11,8 @@
     <body>
         <div class="app">
             <h1>Palm Springs</h1>
-            <div id="deviceready" class="blink">
-                <p class="event received" data-bind="text: readyMsg">Let's do this...!</p>
+            <div data-bind="foreach: projects">
+                <p class="event received" data-bind="text: name"></p>
             </div>
         </div>
         <script src="bower_components/pouchdb/dist/pouchdb.min.js"></script>

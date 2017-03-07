@@ -6,24 +6,32 @@ require([
         'knockout',
     ], function(ko) {
         var vm = {
-            readyMsg: ko.observable(false)
+            projects: ko.observableArray()
         };
         
         document.addEventListener('deviceready', function () {
-            var db = new PouchDB('palmsprings.db', {adapter: 'cordova-sqlite', iosDatabaseLocation: 'Library'});
-            
+            var db = new PouchDB('palmsprings_projects.db', {adapter: 'cordova-sqlite', iosDatabaseLocation: 'Library'});
             
             db.put({
-                _id: 'my-test-entity',
-                entity: {
-                    msg: 'Hello World!'
-                }
+                _id: 'my-test-project',
+                type: 'project',
+                name: 'my project'
+            }).catch(function (err) {
+                console.log(err);
+            });
+            
+            db.put({
+                _id: 'my-test-project-2',
+                type: 'project',
+                name: 'my project 2'
             }).catch(function (err) {
                 console.log(err);
             });
             
             db.allDocs({'include_docs': true}).then(function (docs) {
-                vm.readyMsg(docs.rows[0].doc.entity.msg);
+                vm.projects(docs.rows.map(function(row) {
+                    return row.doc;
+                }));
             }).catch(function (err) {
                 console.log(err);
             });

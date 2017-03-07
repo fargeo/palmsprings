@@ -40,7 +40,8 @@ define([], function() {
 			'turf': '../bower_components/turf/index',
 			'geohash': '../bower_components/geohash/latlon-geohash',
 			'pouchdb': '../bower_components/pouchdb/dist/pouchdb.min',
-			'pouchdb.cordova-sqlite': '../lib/pouchdb.cordova-sqlite'
+			'pouchdb.cordova-sqlite': '../lib/pouchdb.cordova-sqlite',
+			'onsenui': '../bower_components/onsenui/js/onsenui.min'
 		},
 		packages: [{
 			name: "codemirror",

@@ -4,7 +4,8 @@ require([
 ], function(cordova) {
     require([
         'knockout',
-    ], function(ko) {
+        'onsenui'
+    ], function(ko, onsenui) {
         var vm = {
             projects: ko.observableArray()
         };

@@ -58,7 +58,8 @@
     "codemirror": "^5.24.0",
     "turf": "https://cdnjs.cloudflare.com/ajax/libs/Turf.js/3.0.14/turf.min.js",
     "geohash": "chrisveness/latlon-geohash#1.1.0",
-    "pouchdb": "^6.1.2"
+    "pouchdb": "^6.1.2",
+    "onsenui": "^2.1.0"
   },
   "resolutions": {
     "bootstrap": "3.3.2",

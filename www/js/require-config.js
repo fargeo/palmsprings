@@ -38,7 +38,9 @@ define([], function() {
 			'bootstrap-colorpicker': '../bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min',
 			'uuid': '../bower_components/uuid.js/dist/uuid.core',
 			'turf': '../bower_components/turf/index',
-			'geohash': '../bower_components/geohash/latlon-geohash'
+			'geohash': '../bower_components/geohash/latlon-geohash',
+			'pouchdb': '../bower_components/pouchdb/dist/pouchdb.min',
+			'pouchdb.cordova-sqlite': '../lib/pouchdb.cordova-sqlite'
 		},
 		packages: [{
 			name: "codemirror",
@@ -46,6 +48,9 @@ define([], function() {
 			main: "lib/codemirror"
 		}],
 		shim: {
+			'pouchdb.cordova-sqlite': {
+				deps: ['pouchdb']				
+			},
 			'nifty': {
 				deps: ['bootstrap', 'jquery', 'jquery-ui']
 			},

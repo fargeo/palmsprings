@@ -16,7 +16,7 @@ require([
             getProjects: function() {
                 db.query({
                     map: function getProjects(doc) {
-                        if (doc.type === 'project' && doc.graphs) {
+                        if (doc.type === 'project' && doc.config) {
                             emit(doc._id, doc);
                         }
                     }.toString()
@@ -29,14 +29,16 @@ require([
                 });
             },
             updateProjects: function () {
-                $.get('http://localhost:8000/project/ccbd1537-ac5e-11e6-84a5-026d961c88e6', function(r) {
-                    db.upsert('mock-project', function(doc) {
-                        doc.type = 'project';
-                        doc.name = 'mock project';
-                        doc.graphs = r;
-                        return doc;
-                    }).then(function() {
-                        vm.getProjects();
+                $.get('http://localhost:8000/project', function(r) {
+                    r.forEach(function (project) {
+                        db.upsert(project.projectid, function(doc) {
+                            doc.type = 'project';
+                            doc.name = project.name;
+                            doc.config = project.config;
+                            return doc;
+                        }).then(function() {
+                            vm.getProjects();
+                        });
                     });
                 });
             }

@@ -4,8 +4,9 @@ To get started, make sure you've got [Cordova](Cordova Getting Started Guide) an
 
 to get started:
 ```
+cordova platform remove ios
 cordova platform add ios --save
-cordova plugin add cordova-plugin-sqlite-2
+cordova plugin add cordova-plugin-sqlite
 bower install
 ```
 

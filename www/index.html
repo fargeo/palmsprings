@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: ws: 'unsafe-inline' https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -17,7 +17,7 @@
                   <ons-list-header>My Projects</ons-list-header>
                   
                   <!-- ko foreach: projects -->
-                  <ons-list-item>
+                  <ons-list-item modifier="chevron">
                     <div class="left">
                       <ons-icon icon="md-face" class="list__item__icon"></ons-icon>
                     </div>
@@ -25,10 +25,6 @@
                       <span class="list__item__title" data-bind="text: name"></span>
                       <span class="list__item__subtitle">Subtitle</span>
                     </div>
-                    <label class="right">
-                      <ons-switch></ons-switch>
-                      <ons-button  modifier="quiet" data-bind="click: $parent.startProject">Load</ons-button>
-                    </label>
                   </ons-list-item>
                   <!-- /ko -->
 

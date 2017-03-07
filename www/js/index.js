@@ -32,7 +32,7 @@ require([
                 });
             },
             updateProjects: function() {
-                $.get('http://rmg-dev-4.local:8000/project', function(r) {
+                $.get('http://localhost:8000/project', function(r) {
                     r.forEach(function(project) {
                         db.upsert(project.projectid, function(doc) {
                             doc.type = 'project';

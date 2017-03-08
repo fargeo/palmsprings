@@ -14,7 +14,7 @@ require([
             history: [],
             selection: ko.observable(),
             back: function () {
-                vm.selection(vm.history.pop());
+                vm.selection(vm.history[vm.history.length-1]);
             },
             startProject: function() {
                 window.location = "form.html";
@@ -50,21 +50,28 @@ require([
                 });
             }
         };
-
-        vm.selection.subscribe(function(oldValue) {
-            vm.history.push(oldValue);
-        }, null, "beforeChange");
+        var previousSelection = vm.selection();
+        vm.selection.subscribe(function (val) {
+            previousSelection = val;
+        }, this, 'beforeChange');
         
         vm.selection.subscribe(function(selection) {
+            var lastHistoryItem = vm.history[vm.history.length-1];
             var page;
-            if (selection.config && selection.config.resource_models) {
+            if (!selection){
+                page = 'projects.html';
+            } else if (selection.config && selection.config.resource_models) {
                 page = 'resource-models.html';
             } else if (selection.widgets && selection.widgets.length > 0) {
                 page = 'card.html';
             } else if (selection.cards) {
                 page = 'cards.html';
             }
-            
+            if (selection === lastHistoryItem) {
+                vm.history.pop();
+            } else {
+                vm.history.push(previousSelection);
+            }
             vm.nav.pushPage(page);
         });
 

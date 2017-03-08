@@ -13,7 +13,9 @@
 </head>
 
 <body>
-    <ons-navigator animation="slide" id="app-nav">
+    <ons-navigator animation="slide" id="app-nav" page="projects.html"></ons-navigator>
+    
+    <ons-template id="projects.html">
         <ons-page>
             <ons-toolbar>
                 <div class="center">Projects</div>
@@ -30,10 +32,10 @@
                     </div>
                 </ons-list-item>
                 <!-- /ko -->
-
+                
             </ons-list>
         </ons-page>
-    </ons-navigator>
+    </ons-template>
 
     <ons-template id="resource-models.html">
         <ons-page>
@@ -44,7 +46,7 @@
                 <div class="center">Models</div>
             </ons-toolbar>
             <ons-list>
-                <!-- ko if: selection().config && selection().config.resource_models -->
+                <!-- ko if: selection() && selection().config && selection().config.resource_models -->
                 <!-- ko foreach: selection().config.resource_models -->
                 <ons-list-item modifier="chevron" data-bind="click: $parent.selection">
                     <div class="left">
@@ -70,7 +72,7 @@
                 <div class="center">Cards</div>
             </ons-toolbar>
             <ons-list>
-                <!-- ko if: selection().cards -->
+                <!-- ko if: selection() && selection().cards -->
                 <!-- ko foreach: selection().cards -->
                 <ons-list-item modifier="chevron" data-bind="click: $parent.selection">
                     <div class="left">
@@ -96,7 +98,7 @@
                 <div class="center">Add Card</div>
             </ons-toolbar>
             <div style="text-align: center; margin-top: 30px;">
-                <!-- ko if: selection().widgets -->
+                <!-- ko if: selection() && selection().widgets -->
                 <!-- ko foreach: selection().widgets -->
                 <p>
                     <ons-label data-bind="text: label" float></ons-input>

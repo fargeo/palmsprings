@@ -15,9 +15,10 @@
 <body>
     <ons-navigator animation="slide" id="app-nav">
         <ons-page>
+            <ons-toolbar>
+                <div class="center">Projects</div>
+            </ons-toolbar>
             <ons-list>
-                <ons-list-header>My Projects</ons-list-header>
-
                 <!-- ko foreach: projects -->
                 <ons-list-item modifier="chevron" data-bind="click: $parent.selection">
                     <div class="left">
@@ -36,8 +37,13 @@
 
     <ons-template id="resource-models.html">
         <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button data-bind="click: back">Projects</ons-back-button>
+                </div>
+                <div class="center">Models</div>
+            </ons-toolbar>
             <ons-list>
-                <ons-list-header>Resource Models</ons-list-header>
                 <!-- ko if: selection().config && selection().config.resource_models -->
                 <!-- ko foreach: selection().config.resource_models -->
                 <ons-list-item modifier="chevron" data-bind="click: $parent.selection">
@@ -57,8 +63,13 @@
 
     <ons-template id="cards.html">
         <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button data-bind="click: back">Models</ons-back-button>
+                </div>
+                <div class="center">Cards</div>
+            </ons-toolbar>
             <ons-list>
-                <ons-list-header>Cards</ons-list-header>
                 <!-- ko if: selection().cards -->
                 <!-- ko foreach: selection().cards -->
                 <ons-list-item modifier="chevron" data-bind="click: $parent.selection">
@@ -79,6 +90,9 @@
     <ons-template id="card.html">
         <ons-page>
             <ons-toolbar>
+                <div class="left">
+                    <ons-back-button data-bind="click: back">Cards</ons-back-button>
+                </div>
                 <div class="center">Add Card</div>
             </ons-toolbar>
             <div style="text-align: center; margin-top: 30px;">

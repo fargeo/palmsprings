@@ -11,7 +11,11 @@ require([
         var vm = {
             nav: $("#app-nav")[0],
             projects: ko.observableArray(),
+            history: [],
             selection: ko.observable(),
+            back: function () {
+                vm.selection(vm.history.pop());
+            },
             startProject: function() {
                 window.location = "form.html";
             },
@@ -47,6 +51,10 @@ require([
             }
         };
 
+        vm.selection.subscribe(function(oldValue) {
+            vm.history.push(oldValue);
+        }, null, "beforeChange");
+        
         vm.selection.subscribe(function(selection) {
             var page;
             if (selection.config && selection.config.resource_models) {
@@ -56,6 +64,7 @@ require([
             } else if (selection.cards) {
                 page = 'cards.html';
             }
+            
             vm.nav.pushPage(page);
         });
 

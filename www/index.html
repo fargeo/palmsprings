@@ -106,6 +106,15 @@
                 <p>
                     <ons-input type="text" float></ons-input>
                 </p>
+                <div class='' data-bind='component: {
+                    name: $parent.widgetLookup[widget_id].name,
+                    params: {
+                        config: config,
+                        label: label,
+                        disabled: false,
+                        type: "resource-editor"
+                    }
+                }'></div>
                 <!-- /ko -->
                 <!-- /ko -->
                 <p>

@@ -9,29 +9,18 @@
         <title>The form</title>
     </head>
     <body>
-        <div class="app">
-            <h1>The form</h1>
-            <!-- <form class="widgets" style="margin-bottom: 20px;" data-bind="foreach: {
-                    data:card.get('widgets'), as: 'widget'
-                }">
-                <div class='' data-bind='component: {
-                    name: form.widgetLookup[widget.get("widget_id")()].name,
-                    params: {
-                        formData: tile.formData,
-                        tile: tile,
-                        form: form,
-                        config: configJSON,
-                        label: widget.get("label")(),
-                        value: tile.data[widget.get("node_id")()],
-                        node: widget.node,
-                        expanded: widget.expanded,
-                        disabled: false,
-                        graph: form.graph,
-                        type: "resource-editor"
-                    }
-                }'></div>
-            </form> -->
-        </div>
+        <ons-page>
+            <ons-toolbar>
+                <div class="center">Proessing the Widgets</div>
+            </ons-toolbar>
+            <div data-bind="if: !widgets_ready()">
+                <ons-progress-circular indeterminate></ons-progress-circular>
+            </div>
+            <div data-bind="if: widgets_ready() == true">
+                <ons-button modifier="quiet" data-bind="click: loadWidget">Load</ons-button>
+            </div>
+        </ons-page>
+
         <script type="text/javascript" data-main="js/form.js" src="bower_components/requirejs/require.js"></script>
     </body>
 </html>

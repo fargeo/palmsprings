@@ -12,7 +12,29 @@
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.arches.palmsprings"
+        },
+        "cordova-plugin-fastrde-downloader": {
+            "PACKAGE_NAME": "com.arches.palmsprings"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.arches.palmsprings"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.arches.palmsprings"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.arches.palmsprings"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.arches.palmsprings"
+        },
+        "cordova-plugin-zip": {
+            "PACKAGE_NAME": "com.arches.palmsprings"
+        },
+        "cordova-plugin-fastrde-md5": {
+            "PACKAGE_NAME": "com.arches.palmsprings"
+        }
+    }
 }
